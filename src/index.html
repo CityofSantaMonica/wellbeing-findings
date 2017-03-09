@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <title>City of Santa Monica Wellbeing Findings</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
-</head>
-
-<body ng-controller="wellbeing-findings">
-  <h1>City of Santa Monica Wellbeing Findings</h1>
-  <div ng-app="wellbeing-findings">
-    <wellbeing-findings root="./"></wellbeing-findings>
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
-</body>
+   <head>
+      <title>City of Santa Monica Wellbeing Findings</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <style>
+         h2
+         {
+         font-size: 20px;
+         }
+         th
+         {
+         font-size: 17px
+         }
+      </style>
+   </head>
+   <body class="container" ng-controller="wellbeing-findings">
+      <h1>City of Santa Monica Wellbeing Findings</h1>
+      <div ng-app="wellbeing-findings">
+         <wellbeing-findings root="./"></wellbeing-findings>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+      <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="main.js"></script>
+   </body>
 </html>

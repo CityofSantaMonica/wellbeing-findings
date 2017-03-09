@@ -1,66 +1,71 @@
-<div style="margin-bottom: 1em">
-  <input type="text" placeholder="Keyword Search" ng-model="$ctrl.search.$" ng-keypress="$ctrl.keypress($event)"/>
-</div>
-
-<div>
-  <table class="table table-sm">
-  <thead>
-    <tr>
-      <th>Zip</th>
-      <th>Age</th>
-      <th>Race</th>
-      <th>Gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><input type="checkbox" ng-model="$ctrl.search.zip90401">90401<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.Children">Children<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.AfricanAmerican">African American<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.Male">Male<br></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" ng-model="$ctrl.search.zip90402">90402<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.YoungerAge">Younger Age<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.Asian">Asian<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.Female">Female<br></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" ng-model="$ctrl.search.zip90403">90403<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.MiddleAge">Middle Age<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.Latino">Latino<br></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" ng-model="$ctrl.search.zip90404">90404<br></td>
-      <td><input type="checkbox" ng-model="$ctrl.search.OlderAge">Older Age<br></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" ng-model="$ctrl.search.zip90405">90405<br></td>
-    </tr>
-</table>
-</div></br>
-
-<button type="button" ng-click="$ctrl.reset()">
-  Reset
-</button>
-
-<div>
-<h2>Search Results</h2>
-  <table class="table">
-  <thead>
-    <tr>
-      <th>Finding</th>
-      <th>Dimension</th>
-      <th>Subdimension</th>
-      <th>Measure</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr ng-repeat="info in $ctrl.data | filter:$ctrl.search | orderBy: 'Finding' ">
-        <td>{{info.Finding}}</td>
-        <td>{{info.Dimension}}</td>
-        <td>{{info.Subdimension}}</td>
-        <td>{{info.Measure}}</td>
-      </tr>
-</table>
+<form>
+   </br>
+   <div class="form-group" >
+   <div class="row">
+      <input type="text" class="form-control" placeholder="Keyword Search" ng-model="$ctrl.search.$" ng-keypress="$ctrl.keypress($event)"/>
+   </div>
+   <div class="row">
+      <div class="col-sm-3">
+         <div class="row">
+            <h2>Zip</h2>
+            <div><input type="checkbox" ng-model="$ctrl.search.zip90401">90401</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.zip90402">90402</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.zip90403">90403</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.zip90404">90404</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.zip90405">90405</input></div>
+         </div>
+      </div>
+      <div class="col-sm-3">
+         <div class="row">
+            <h2>Age</h2>
+            <div><input type="checkbox" ng-model="$ctrl.search.Children">Children</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.YoungerAge">Younger Age</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.MiddleAge">Middle Age</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.OlderAge">Older Age</input></div>
+         </div>
+      </div>
+      <div class="col-sm-3">
+         <div class="row">
+            <h2>Race</h2>
+            <div><input type="checkbox" ng-model="$ctrl.search.AfricanAmerican">African American</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.Asian">Asian</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.Latino">Latino</input></div>
+         </div>
+      </div>
+      <div class="col-sm-3">
+         <div class="row">
+            <h2>Gender</h2>
+            <div><input type="checkbox" ng-model="$ctrl.search.Female">Female</input></div>
+            <div><input type="checkbox" ng-model="$ctrl.search.Male">Male</input></div>
+         </div>
+      </div>
+   </div>
+   </br>
+   <div class="row">
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">
+      Reset
+      </button></br></br>
+   </div>
+</form>
+<div class="row">
+   <h2>Search Results</h2>
+   <table class="table table-hover">
+      <thead class="thead-default">
+         <tr>
+            <th>Finding</th>
+            <th>Dimension</th>
+            <th>Subdimension</th>
+            <th>Measure</th>
+            <th>Year</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr ng-repeat="info in $ctrl.data | filter:$ctrl.search | orderBy: 'Finding' ">
+            <td>{{info.Finding}}</td>
+            <td>{{info.Dimension}}</td>
+            <td>{{info.Subdimension}}</td>
+            <td>{{info.Measure}}</td>
+            <td>{{info.Year}}</td>
+         </tr>
+   </table>
 </div>

@@ -2,4 +2,4 @@
 
 Explore the City's [Wellbeing Findings Program][1] data.
 
-[1]: http://www.smgov.net/wellbeing-findings
+[1]: https://cityofsantamonica.github.io/wellbeing-findings/
