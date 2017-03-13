@@ -4,43 +4,46 @@
    <div class="row">
       <input type="text" class="form-control" placeholder="Keyword Search" ng-model="$ctrl.search.$" ng-keypress="$ctrl.keypress($event)"/>
    </div>
+
    <div class="row">
+       <div ng-repeat="group in $ctrl.groups" class="col-sm-3">
+         <h2>{{group.label}}</h2>
+         <div ng-repeat="info in group.properties">
+           <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+         </div>
+       </div>
+
       <div class="col-sm-3">
          <div class="row">
-            <h2>Zip</h2>
-            <div><input type="checkbox" ng-model="$ctrl.search.zip90401">90401</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.zip90402">90402</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.zip90403">90403</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.zip90404">90404</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.zip90405">90405</input></div>
+            <div ng-repeat="info in $ctrl.change">
+              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+            </div>
          </div>
       </div>
       <div class="col-sm-3">
          <div class="row">
-            <h2>Age</h2>
-            <div><input type="checkbox" ng-model="$ctrl.search.Children">Children</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.YoungerAge">Younger Age</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.MiddleAge">Middle Age</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.OlderAge">Older Age</input></div>
+            <div ng-repeat="info in $ctrl.change">
+              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+            </div>
          </div>
       </div>
       <div class="col-sm-3">
          <div class="row">
-            <h2>Race</h2>
-            <div><input type="checkbox" ng-model="$ctrl.search.AfricanAmerican">African American</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.Asian">Asian</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.Latino">Latino</input></div>
+            <div ng-repeat="info in $ctrl.change">
+              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+            </div>
          </div>
       </div>
       <div class="col-sm-3">
          <div class="row">
-            <h2>Gender</h2>
-            <div><input type="checkbox" ng-model="$ctrl.search.Female">Female</input></div>
-            <div><input type="checkbox" ng-model="$ctrl.search.Male">Male</input></div>
+            <div ng-repeat="info in $ctrl.change">
+              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+            </div>
          </div>
       </div>
    </div>
    </br>
+
    <div class="row">
       <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">
       Reset
@@ -60,12 +63,12 @@
          </tr>
       </thead>
       <tbody>
-         <tr ng-repeat="info in $ctrl.data | filter:$ctrl.search | orderBy: 'Finding' ">
-            <td>{{info.Finding}}</td>
-            <td>{{info.Dimension}}</td>
-            <td>{{info.Subdimension}}</td>
-            <td>{{info.Measure}}</td>
-            <td>{{info.Year}}</td>
-         </tr>
-   </table>
+        <tr ng-repeat="info in $ctrl.data | filter:$ctrl.search | orderBy: 'Finding' ">
+          <td>{{info.Finding}}</td>
+          <td>{{info.Dimension}}</td>
+          <td>{{info.Subdimension}}</td>
+          <td>{{info.Measure}}</td>
+          <td>{{info.Year}}</td>
+       </tr>
+</table>
 </div>
