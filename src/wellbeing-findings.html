@@ -6,44 +6,15 @@
    </div>
 
    <div class="row">
-       <div ng-repeat="group in $ctrl.groups" class="col-sm-3">
+       <div ng-repeat="group in $ctrl.filter" class="col-sm-3">
          <h2>{{group.label}}</h2>
          <div ng-repeat="info in group.properties">
            <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
          </div>
-       </div>
 
-      <div class="col-sm-3">
-         <div class="row">
-            <div ng-repeat="info in $ctrl.change">
-              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
-            </div>
-         </div>
-      </div>
-      <div class="col-sm-3">
-         <div class="row">
-            <div ng-repeat="info in $ctrl.change">
-              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
-            </div>
-         </div>
-      </div>
-      <div class="col-sm-3">
-         <div class="row">
-            <div ng-repeat="info in $ctrl.change">
-              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
-            </div>
-         </div>
-      </div>
-      <div class="col-sm-3">
-         <div class="row">
-            <div ng-repeat="info in $ctrl.change">
-              <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
-            </div>
-         </div>
-      </div>
+       </div>
    </div>
    </br>
-
    <div class="row">
       <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">
       Reset
