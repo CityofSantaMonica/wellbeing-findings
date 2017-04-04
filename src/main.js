@@ -2,8 +2,8 @@
   "use strict";
 
   angular
-    .module("wellbeing-findings", [])
-    .config(function($sceDelegateProvider){
+    .module("wellbeing-findings", ["ngTable"])
+    .config(function($sceDelegateProvider) {
       $sceDelegateProvider.resourceUrlWhitelist([
         "self",
         "https://cityofsantamonica.github.io/**"
@@ -13,33 +13,47 @@
       bindings: {
         root: "@",
       },
-      controller: ["$http", wellbeingFindings],
+      controller: ["filterFilter", "$http", "NgTableParams", wellbeingFindings],
       template: '<ng-include src="$ctrl.templateUrl"></ng-include>'
     });
 
-    function wellbeingFindings ($http) {
+    function wellbeingFindings ($filter, $http, NgTableParams) {
       var ctrl = this;
 
       ctrl.$onInit = function () {
-        ctrl.reset();
         ctrl.templateUrl = ctrl.root + "wellbeing-findings.html";
+
         $http.get(ctrl.root + "filter.json", { cache: true }).then(function (results) {
           ctrl.filter = results.data
         });
         $http.get(ctrl.root + "data.json", { cache: true }).then(function (results) {
             ctrl.data = results.data;
+            ctrl.reset();
         });
       };
 
       ctrl.change = function(property) {
+
         var value = ctrl.search[property];
-        if(value !== true){
+        if (value !== true){
             delete ctrl.search[property];
         }
+
+        var filterData = $filter(ctrl.data, ctrl.search);
+        var filterTextData = ctrl.tableParams.filter();
+        ctrl.tableParams = new NgTableParams(
+          { sorting: { Finding: "asc" }, count: ctrl.data.length },
+          { dataset: filterData, counts: []}
+        );
+        ctrl.tableParams.filter(filterTextData);
       };
 
       ctrl.reset = function() {
         ctrl.search = {$: ""};
+        ctrl.tableParams = new NgTableParams(
+          { sorting: { Finding: "asc" }, count: ctrl.data.length },
+          { dataset: ctrl.data, counts: []}
+        );
       }
     }
 })();

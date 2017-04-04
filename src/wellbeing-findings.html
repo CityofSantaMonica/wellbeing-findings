@@ -2,44 +2,30 @@
    </br>
    <div class="form-group" >
    <div class="row">
-      <input type="text" class="form-control" placeholder="Keyword Search" ng-model="$ctrl.search.$" ng-keypress="$ctrl.keypress($event)"/>
-   </div>
-
-   <div class="row">
-       <div ng-repeat="group in $ctrl.filter" class="col-sm-3">
+       <div ng-repeat="group in $ctrl.filter" class="col-sm-2">
          <h2>{{group.label}}</h2>
          <div ng-repeat="info in group.properties">
            <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
          </div>
-
        </div>
-   </div>
-   </br>
+   </div></br>
+
    <div class="row">
-      <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">
-      Reset
-      </button></br></br>
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">Reset</button></br></br>
    </div>
 </form>
+
 <div class="row">
-   <h2>Search Results</h2>
-   <table class="table table-hover">
-      <thead class="thead-default">
-         <tr>
-            <th>Finding</th>
-            <th>Dimension</th>
-            <th>Subdimension</th>
-            <th>Measure</th>
-            <th>Year</th>
-         </tr>
-      </thead>
+   <h2>Findings : <strong>{{ $ctrl.tableParams.total() }}</strong> records</h2>
+   <table class="table table-hover" ng-table="$ctrl.tableParams" show-filter="true">
       <tbody>
-        <tr ng-repeat="info in $ctrl.data | filter:$ctrl.search | orderBy: 'Finding' ">
-          <td>{{info.Finding}}</td>
-          <td>{{info.Dimension}}</td>
-          <td>{{info.Subdimension}}</td>
-          <td>{{info.Measure}}</td>
-          <td>{{info.Year}}</td>
+        <tr ng-repeat="info in $data">
+          <td  title="'Finding'" filter="{ Finding: 'text' }" sortable="'Finding'">{{info.Finding}}</td>
+          <td title="'Dimension'" filter="{ Dimension: 'text' }" sortable="'Dimension'">{{info.Dimension}}</td>
+          <td title="'Subdimension'" filter="{ Subdimension: 'text' }" sortable="'Subdimension'">{{info.Subdimension}}</td>
+          <td title="'Measure'" filter="{ Measure: 'text' }" sortable="'Measure'">{{info.Measure}}</td>
+          <td title="'Year'" filter="{ Year: 'text' }" sortable="'Year'">{{info.Year}}</td>
+          <td title="'DataSource'" filter="{ 'DataSource': 'text' }" sortable="'DataSource'">{{info.DataSource}}</td>
        </tr>
 </table>
 </div>
