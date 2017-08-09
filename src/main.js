@@ -1,12 +1,15 @@
 (function () {
   "use strict";
 
+  var dataRoot = "https://raw.githubusercontent.com/CityofSantaMonica/WellbeingData";
+
   angular
     .module("wellbeing-findings", ["ngTable"])
     .config(function($sceDelegateProvider) {
       $sceDelegateProvider.resourceUrlWhitelist([
         "self",
-        "https://cityofsantamonica.github.io/**"
+        "https://cityofsantamonica.github.io/**",
+        dataRoot + "/**"
       ]);
     })
     .component("wellbeingFindings", {
@@ -26,14 +29,13 @@
         $http.get(ctrl.root + "filter.json", { cache: true }).then(function (results) {
           ctrl.filter = results.data
         });
-        $http.get(ctrl.root + "data.json", { cache: true }).then(function (results) {
+        $http.get(dataRoot + "/master/Findings/data.json", { cache: true }).then(function (results) {
             ctrl.data = results.data;
             ctrl.reset();
         });
       };
 
       ctrl.change = function(property) {
-
         var value = ctrl.search[property];
         if (value !== true){
             delete ctrl.search[property];
