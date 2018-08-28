@@ -16,7 +16,7 @@
 </form>
 
 <div class="row">
-   <h2>Findings : <strong>{{ $ctrl.tableParams.total() }}</strong> records</h2>
+   <h2>Showing <strong>{{ $ctrl.tableParams.total() }}</strong> {{ $ctrl.tableParams.total() == 1 ? "Finding" : "Findings" }}</h2>
    <table class="table table-hover" ng-table="$ctrl.tableParams" show-filter="true">
       <tbody>
         <tr ng-repeat="info in $data">
