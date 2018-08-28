@@ -8,9 +8,6 @@ rvm:
 before_install:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_status pending "Waiting for website to build"
 
-script:
-  - bash .travis/build.sh
-
 after_success:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_deploy
 after_failure:
