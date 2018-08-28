@@ -1,15 +1,12 @@
 sudo: false
 
-language: ruby
-cache: bundler
-rvm:
-  - 2.3.3
+language: bash
 
 before_install:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_status pending "Waiting for website to build"
 
 script:
-  - bash .travis/build.sh
+  - echo "Travis 'build' running..."
 
 after_success:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_deploy
@@ -18,7 +15,7 @@ after_failure:
 
 env:
   global:
-    - GITHUB_AUTH_USER=allejo
+    - GITHUB_AUTH_USER=thekaveman
     - GITHUB_USER=CityofSantaMonica
     - GITHUB_REPO=wellbeing-findings
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
