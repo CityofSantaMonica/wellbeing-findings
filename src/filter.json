@@ -42,6 +42,10 @@
          {
             "property":"OlderAge",
             "label":"Older Age"
+         },
+         {
+             "property":"Parents",
+             "label": "Parents"
          }
       ]
    },
@@ -74,5 +78,22 @@
             "label":"Male"
          }
       ]
+   },
+   {
+       "label": "Year",
+       "properties":[
+           {
+               "property":"year2014",
+               "label":"2014"
+           },
+           {
+               "property":"year2015",
+               "label":"2015"
+            },
+            {
+                "property":"year2017",
+                "label":"2017"
+            }
+       ]
    }
 ]
