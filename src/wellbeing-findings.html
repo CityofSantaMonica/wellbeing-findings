@@ -5,7 +5,7 @@
        <div ng-repeat="group in $ctrl.filter" class="col-sm-2">
          <h2>{{group.label}}</h2>
          <div ng-repeat="info in group.properties">
-           <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)">{{info.label}}</input>
+           <input type="checkbox" ng-model="$ctrl.search[info.property]" ng-change="$ctrl.change(info.property)"> {{info.label}}</input>
          </div>
        </div>
    </div></br>
