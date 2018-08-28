@@ -6,7 +6,7 @@ before_install:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_status pending "Waiting for website to build"
 
 script:
-  - echo "Nothing to do..."
+  - echo "Travis 'build' running..."
 
 after_success:
   - test $TRAVIS_PULL_REQUEST && ./.travis/pr_deploy
@@ -15,7 +15,7 @@ after_failure:
 
 env:
   global:
-    - GITHUB_AUTH_USER=allejo
+    - GITHUB_AUTH_USER=thekaveman
     - GITHUB_USER=CityofSantaMonica
     - GITHUB_REPO=wellbeing-findings
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
